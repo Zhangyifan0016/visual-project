@@ -1,0 +1,37 @@
+.point{
+  height : 4.25rem;
+}
+.point .chart{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.3rem;
+}
+.point .pie{
+  width : 3.9rem;
+  height : 3rem;
+  /* background-color: yellowgreen; */
+  margin-left: -0.125rem;
+}
+.point .data{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.1rem;
+	min-width : 100px;
+  background: url("../image/rect.png");
+  background-size: cover;
+  padding:.45rem .375rem;
+  box-sizing: border-box;
+}
+
+.point h4{
+  color : #fff;
+  font-size:0.35rem;
+  margin-bottom: 0.15rem;
+}
+
+.point span{
+  color : #4c9bfd;
+  display: block;
+  font-size: 0.2rem;
+}
