@@ -1,0 +1,38 @@
+.viewport{
+  display: flex;
+  min-width: 1024px;
+  max-width: 1920px;
+  min-height: 780px;
+  background:url("../image/logo.png") no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+  padding : 1.1rem 0.25rem 0;
+  color : #fff;
+}
+.column{
+  flex : 3;
+}
+.column:nth-child(2){
+  flex : 4;
+	padding : 0.4rem .25rem 0;
+}
+
+.overview{
+  height : 1.375rem;
+}
+
+.overview .inner ul{
+  display: flex;
+  justify-content: space-between;
+}
+.overview .inner ul h4{
+  font-size:0.35rem;
+  color : #fff;
+  margin:  0 0 0 0.06rem;
+}
+.overview .inner ul span{
+  position: relative;
+  color: #4c9bfd;
+  font-size : 0.2rem;
+  top : -0.1375rem;
+}
