@@ -1,0 +1,35 @@
+.users{
+	height : 4.25rem;
+}
+
+.users .chart{
+	display: flex;
+	 margin-top: 0.3rem;
+	justify-content: space-between;
+}
+
+.users .chart .bar{
+	width: 7.35rem;
+	height: 3rem;
+}
+.users .chart .data{
+	background: url("../image/rect.png");
+	background-size: cover;
+	display : flex;
+	width : 2.5rem;
+	min-width : 100px;
+	flex-direction: column;
+	justify-content: space-between;
+	box-sizing: border-box;
+	padding: .45rem .375rem;
+}
+.users h4{
+	font-size: 0.35rem;
+	color : #fff;
+	margin-bottom: 0.15rem;
+}
+.users span{
+	font-size: 0.15rem;
+	color : #4c9bfd;
+	display:block;
+}

@@ -13,6 +13,7 @@
   });
 })();
 
+// 饼图 销售地分布统计
 (function () {
   $(document).ready(function () {
     const pie = document.querySelector(".pie");
@@ -84,6 +85,138 @@
             length: 6,
             length2: 8,
           },
+        },
+      ],
+    };
+    myChart.setOption(option);
+
+    window.addEventListener("resize", function () {
+      myChart.resize();
+    });
+  });
+})();
+
+// 全国用户统计 柱状图
+(function () {
+  $(document).ready(function () {
+    const bar = document.querySelector(".bar");
+    const myChart = echarts.init(bar);
+    const item = {
+      name: "",
+      value: 1200,
+      itemStyle: {
+        color: "#254065",
+      },
+      emphasis: {
+        itemStyle: {
+          color: "#254065",
+        },
+      },
+      tooltip: {
+        extraCssText: "opacity : 0",
+      },
+    };
+    const option = {
+      color: {
+        type: "linear",
+        x: 0,
+        y: 0,
+        x2: 0,
+        y2: 1,
+        colorStops: [
+          {
+            offset: 0,
+            color: "#00fffb", // 0% 处的颜色
+          },
+          {
+            offset: 1,
+            color: "#0061ce", // 100% 处的颜色
+          },
+        ],
+        global: false, // 缺省为 false
+      },
+      tooltip: {
+        trigger: "item",
+      },
+      grid: {
+        left: "0%",
+        right: "3%",
+        bottom: "3%",
+        top: "3%",
+        containLabel: true,
+        show: true,
+        borderColor: "rgba(0,240,250,0.3)",
+      },
+      xAxis: {
+        axisTick: {
+          show: false,
+          alignWithLabel: true,
+        },
+        axisLabel: {
+          color: "#4c9bfd",
+          fontSize: 9.5,
+        },
+        axisLine: {
+          lineStyle: {
+            color: "rgba(0,240,250,0.3)",
+          },
+        },
+        type: "category",
+        data: [
+          "上海",
+          "广州",
+          "北京",
+          "深圳",
+          "合肥",
+          "",
+          "...",
+          "",
+          "杭州",
+          "厦门",
+          "济南",
+          "成都",
+          "重庆",
+        ],
+      },
+      yAxis: {
+        axisTick: {
+          show: false,
+        },
+        axisLabel: {
+          color: "#4c9bfd",
+        },
+        axisLine: {
+          lineStyle: {
+            color: "rgba(0,240,250,0.3)",
+          },
+        },
+        splitLine: {
+          lineStyle: {
+            color: "rgba(0,240,250,0.3)",
+          },
+        },
+        type: "value",
+      },
+      series: [
+        {
+          name: "用户总量",
+          data: [
+            2100,
+            1900,
+            1700,
+            1560,
+            1400,
+            item,
+            item,
+            item,
+            900,
+            750,
+            600,
+            480,
+            240,
+          ],
+          type: "bar",
+          barWidth: "60%",
         },
       ],
     };
