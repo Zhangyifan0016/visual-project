@@ -227,3 +227,55 @@
     });
   });
 })();
+
+// 右一
+(function () {
+  const data = {
+    day365: {
+      orders: "30,321,988",
+      amount: "99882",
+    },
+    day90: {
+      orders: "301,987",
+      amount: "9834",
+    },
+    day30: {
+      orders: "1,987",
+      amount: "3834",
+    },
+    day1: {
+      orders: "987",
+      amount: "834",
+    },
+  };
+  $(document).ready(function () {
+    const orderValue = $(".order h4:eq(0)");
+    const amountValue = $(".order h4:eq(1)");
+
+    let _index = 1;
+    $(".order .filter a").click(function () {
+      _index = $(this).index();
+      tabs();
+    });
+
+    setInterval(() => {
+      tabs();
+      _index++;
+      if (_index > 3) {
+        _index = 0;
+      }
+    }, 1000);
+
+    function tabs() {
+      $(".order .filter a")
+        .eq(_index)
+        .addClass("active")
+        .siblings("a")
+        .removeClass();
+      const _attr = $(".order .filter a").get(_index).dataset.type;
+      const currData = data[_attr];
+      orderValue.html(currData.orders);
+      amountValue.html(currData.amount);
+    }
+  });
+})();
