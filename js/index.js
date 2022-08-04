@@ -462,3 +462,163 @@
     }
   });
 })();
+
+// 渠道分布
+(function () {
+  $(document).ready(function () {
+    const radar = document.querySelector(".radar");
+    const myChart = echarts.init(radar);
+    const dataSH = [[110, 90, 80, 60, 30]];
+    const lineStyle = {
+      normal: {
+        color: "#fff",
+      },
+    };
+    const option = {
+      tooltip: {
+        show: true,
+        position: ["55%", "10%"],
+        textStyle: {
+          fontSize: 12,
+          color: "#fff",
+        },
+        borderWidth: 0,
+        backgroundColor: "rgba(0,0,0,0.3)",
+      },
+      radar: {
+        indicator: [
+          {
+            name: "淘宝",
+            max: 120,
+          },
+          {
+            name: "京东",
+            max: 120,
+          },
+          {
+            name: "苏宁",
+            max: 120,
+          },
+          {
+            name: "微商",
+            max: 120,
+          },
+          {
+            name: "其他",
+            max: 120,
+          },
+        ],
+        center: ["50%", "50%"],
+        radius: "50%",
+        shape: "circle",
+        splitNumber: 4,
+        name: {
+          textStyle: {
+            color: "#4c9bfd",
+          },
+        },
+        splitLine: {
+          lineStyle: {
+            color: "rgba(255,255,255,0.3)",
+          },
+        },
+        splitArea: {
+          show: false,
+        },
+        axisLine: {
+          lineStyle: {
+            color: "rgba(255,255,255,0.3)",
+          },
+        },
+      },
+      series: [
+        {
+          name: "上海",
+          type: "radar",
+          lineStyle: lineStyle,
+          data: dataSH,
+          symbol: "circle",
+          symbolSize: 5,
+          itemStyle: {
+            color: "#fff",
+          },
+          areaStyle: {
+            color: "rgba(238, 197, 102, 0.6)",
+          },
+        },
+      ],
+    };
+    myChart.setOption(option);
+    window.addEventListener("resize", function () {
+      myChart.resize();
+    });
+  });
+})();
+
+// 季度销售进度
+(function () {
+  $(document).ready(function () {
+    const gauge = document.querySelector(".gauge");
+    const myChart = echarts.init(gauge);
+    const option = {
+      graphic: {
+        type: "text",
+        left: "center",
+        top: "50%",
+        z: 2,
+        zlevel: 100,
+        style: {
+          text: "50" + "%",
+          fill: "#fff",
+          width: 100,
+          height: 30,
+          fontSize: 20,
+        },
+      },
+      series: [
+        {
+          type: "pie",
+          avoidLabelOverlap: false,
+          startAngle: 180,
+          silent: true,
+          radius: ["130%", "150%"],
+          center: ["50%", "80%"],
+          labelLine: {
+            show: false,
+          },
+          data: [
+            {
+              value: 100,
+              itemStyle: {
+                color: {
+                  type: "linear",
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "#00c9e0", // 0% 处的颜色
+                    },
+                    {
+                      offset: 1,
+                      color: "#005fc1", // 100% 处的颜色
+                    },
+                  ],
+                  global: false, // 缺省为 false
+                },
+              },
+            },
+            { value: 100, itemStyle: { color: "#12274d" } },
+            { value: 200, itemStyle: { color: "transparent" } },
+          ],
+        },
+      ],
+    };
+    myChart.setOption(option);
+    window.addEventListener("resize", function () {
+      myChart.resize();
+    });
+  });
+})();
